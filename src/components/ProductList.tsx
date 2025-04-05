@@ -1,3 +1,5 @@
+import {memo} from "react";
+
 interface Product {
     id: number;
     name: string;
@@ -9,7 +11,9 @@ interface ProductListProps {
     addToCart: (product: Product) => void;
 }
 
-function ProductList({ products, addToCart }: ProductListProps) {
+const ProductList
+    = memo(function ProductList({ products, addToCart }: ProductListProps) {
+        console.log("ProductList render");
     return (
         <div>
             <h2>Danh sách sản phẩm</h2>
@@ -22,7 +26,7 @@ function ProductList({ products, addToCart }: ProductListProps) {
                 ))}
             </ul>
         </div>
-    );
-}
+    )
+})
 export type {Product};
 export default ProductList;
